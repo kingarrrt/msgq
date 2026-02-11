@@ -59,6 +59,8 @@ env = Environment(
     "-g",
     "-fPIC",
     "-O2",
+    # XXX: this is a guess
+    "-DCL_TARGET_OPENCL_VERSION=120",
     "-Wunused",
     "-Werror",
     "-Wshadow",
