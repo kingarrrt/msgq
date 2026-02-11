@@ -12,21 +12,31 @@ classifiers = [
   "Topic :: System :: Hardware",
 ]
 dependencies = [
-  "setuptools",  # for distutils
-  "Cython",
-  "scons",
-  "ruff",
+  "numpy",
+]
+
+[project.optional-dependencies]
+testing = [
   "parameterized",
   "coverage",
-  "numpy",
   "pytest",
   "pytest-retry",
+]
+dev = [
+  "ruff",
   "cppcheck",
   "cpplint",
   "codespell",
-  "ty",
   "lefthook",
+  "ty",
 ]
+
+[build-system]
+requires = ["setuptools", "scons", "Cython", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"*" = ["*.pxd", "*.so"]
 
 # https://beta.ruff.rs/docs/configuration/#using-pyprojecttoml
 [tool.ruff]
