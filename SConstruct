@@ -16,10 +16,12 @@ cpppath = [
   '/usr/lib/include',
   '/opt/homebrew/include',
   sysconfig.get_paths()['include'],
+  *os.getenv("CPPPATH", "").split(":"),
 ]
 
 libpath = [
   '/opt/homebrew/lib',
+  *os.getenv("LIBPATH", "").split(":"),
 ]
 
 AddOption('--minimal',
